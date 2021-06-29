@@ -1,0 +1,8 @@
+Insert TXT at specified line of file
+sed -i "LINE_#i TXT_TO_INSERT PATH/TO/FILE
+
+Replace String with another string
+sed -i 's/STRING 1/STRING 2/g' PATH_TO_FILE
+
+Replace string with another string if slash is in string
+sed -i 's|STRING/1|STRING/2|g' PATH_TO_FILE
