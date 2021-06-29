@@ -1,0 +1,13 @@
+#!/bin/bash
+
+MYSQL_ROOT_PW=
+MYSQL_USER=
+MYSQL_USER_PW=
+
+mysql <<BASH_QUERY
+SET PASSWORD FOR root@localhost = PASSWORD('$MYSQL_ROOT_PW');FLUSH PRIVILEGES;
+DELETE FROM mysql.user WHERE User='';
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DROP DATABASE test;DELETE FROM mysql.db WHERE Db='test' OR Db='test_%';
+CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_USER_PW';GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_USER'@'localhost';FLUSH PRIVILEGES;
+BASH_QUERY
