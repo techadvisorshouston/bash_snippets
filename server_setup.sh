@@ -227,6 +227,7 @@ systemctl reload apache2 &>/dev/null
 
 # Add Env Var to Apache
 echo "export DOMAIN_NAME=$DOMAIN_NAME">>/etc/apache2/apache2.conf
+echo "export DOMAIN_NAME=$DOMAIN_NAME">>/root/.bashrc
 
 # Disable Indexing
 echo "Disabling Indexing of Web Root Directory.."
